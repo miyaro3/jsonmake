@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text to JSON</title>
+</head>
+<body>
+
+  <h2>テキストボックスにテキストを入力してください</h2>
+  <textarea id="inputText" rows="10" cols="30"></textarea>
+  <br>
+  <button onclick="convertToJSON()">JSONに変換</button>
+  <br>
+  <h2>JSON出力</h2>
+  <pre id="outputJSON"></pre>
+
+  <script>
+    function convertToJSON() {
+      // テキストボックスからテキストを取得
+      var inputText = document.getElementById("inputText").value;
+
+      // 改行でテキストを分割し、配列に格納
+      var lines = inputText.split('\n');
+
+      // 配列をJSONに変換
+      var jsonData = JSON.stringify(lines, null, 2);
+
+      // 結果を表示
+      document.getElementById("outputJSON").innerText = jsonData;
+    }
+  </script>
+
+</body>
+</html>
